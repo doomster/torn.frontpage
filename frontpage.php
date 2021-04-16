@@ -2,13 +2,13 @@
 session_start();
 include('encryptionkey.php');
 include('functions.php');
-if(!isset($_SESSION['APIKEY']) && !isset($_COOKIE['torndoomstereu']))
+if(!isset($_SESSION['APIKEY']) && !isset($_COOKIE['tornfrontpage']))
   { 
   header('location:../index.php');
   }
 elseif(!isset($_SESSION['APIKEY'])) {
  $key = base64_decode($key);
- $decoded = base64_decode($_COOKIE['torndoomstereu']);
+ $decoded = base64_decode($_COOKIE['tornfrontpage']);
  $nonce = mb_substr($decoded, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
  $cipher = mb_substr($decoded, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
  $_SESSION['APIKEY'] = sodium_crypto_secretbox_open($cipher, $nonce, $key);
@@ -19,7 +19,7 @@ else
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Torn OPT - by doomster.eu</title>
+  <title>Torn Frontpage - by doomster.eu</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -43,13 +43,12 @@ $status = json_decode($statusrequest); ?>
   <div class="row">
           <div class="jumbotron text-center">
   <h1><span class="sitetitlefont11">TORN</span> <span class="sitetitlefont21">FrontPage</span></h1>
+  <p class="text-justify content">You are currently a <?php echo $status->level; ?> level <?php echo $status->rank; ?> working as a <?php echo $status->job->position." at ".$status->job->company_name; ?> . Your soul belongs to <?php echo $status->faction->faction_name." who currently use you as a ".$status->faction->position; ?> within their ranks. Your current status is <?php echo $status->status->state; ?> and you are feeling pretty good about it.</p>
 </div>
-    <div class="col-sm-6">
-      <p class="text-justify content">You are currently a <?php echo $status->level; ?> level <?php echo $status->rank; ?> working as a <?php echo $status->job->position." at ".$status->job->company_name; ?> . Your soul belongs to <?php echo $status->faction->faction_name." who currently use you as a ".$status->faction->position; ?> within their ranks. Your current status is <?php echo $status->status->state; ?> and you are feeling pretty good about it.</p>
+    <div class="col-sm-6"><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p><p class="text-justify content">Column one for newspaper like info </p>
     </div>
     <div class="col-sm-6">
-      <p class="text-justify content">this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,</p>
-      <p class="text-justify content">this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,this will be a -newspaper like - two columns site and this is its second column of text,</p>
+      <p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p>  <p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p><p class="text-justify content">Column two for newspaper like info </p>
     </div>     
   </div>
 </div>  
