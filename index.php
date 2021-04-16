@@ -1,6 +1,7 @@
 <?php
 // Start the session
 session_start();
+include('encryptionkey.php');
 include('functions.php');
 if(isset($_SESSION['APIKEY']) || isset($_COOKIE['torndoomstereu'])) {
 	 header("location:frontpage.php");
@@ -9,7 +10,7 @@ if(isset($_POST['APIKEY'])) {
 	$statusrequest=file_get_contents('https://api.torn.com/user/?selections=&key='.$_POST['APIKEY']);
   if ($statusrequest != '{"error":{"code":2,"error":"Incorrect key"}}') {  
   	if (isset($_POST['REMEMBERME'])) {
-  		$key = base64_decode('JgHKzZ6ZFqkUVT8xFAJs5o7g/trRh0FJI3OpyaQRMW0=');
+  		$key = base64_decode($key);
   		$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
   		$cipher = sodium_crypto_secretbox('test', $nonce, $key);
   		$encodedapikey = base64_encode($nonce . $cipher);

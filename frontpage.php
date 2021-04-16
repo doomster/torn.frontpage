@@ -1,11 +1,13 @@
 <?php 
 session_start();
+include('encryptionkey.php');
+include('functions.php');
 if(!isset($_SESSION['APIKEY']) && !isset($_COOKIE['torndoomstereu']))
   { 
   header('location:../index.php');
   }
 elseif(!isset($_SESSION['APIKEY'])) {
- $key = base64_decode('JgHKzZ6ZFqkUVT8xFAJs5o7g/trRh0FJI3OpyaQRMW0=');;
+ $key = base64_decode($key);
  $decoded = base64_decode($_COOKIE['torndoomstereu']);
  $nonce = mb_substr($decoded, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, '8bit');
  $cipher = mb_substr($decoded, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES, null, '8bit');
@@ -13,7 +15,6 @@ elseif(!isset($_SESSION['APIKEY'])) {
  }
 else
 {
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
