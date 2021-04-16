@@ -36,9 +36,8 @@ else
 </nav>
 
 <?php 
-printf($_SESSION['APIKEY']);
-$status = $_SESSION['statusrequest'];
-$status = json_decode($status); ?>
+$statusrequest=file_get_contents('https://api.torn.com/user/?selections=&key='.$_SESSION['APIKEY']);
+$status = json_decode($statusrequest); ?>
 <div class="container">
   <div class="row">
           <div class="jumbotron text-center">
