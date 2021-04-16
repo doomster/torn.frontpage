@@ -1,0 +1,28 @@
+/**************/
+/* site Fonts */
+/**************/
+
+
+.sitetitlefont2 {
+	font-family: 'Lily Script One', cursive;
+	font-size:3em;
+}
+.sitetitlefont1 {
+	font-family: 'Nanum Brush Script', cursive;
+	font-size:1.5em;
+}
+
+.sitetitlefont21 {
+	font-family: 'Lily Script One', cursive;
+	font-size:1.5em;
+}
+.sitetitlefont11 {
+	font-family: 'Nanum Brush Script', cursive;
+	font-size:1.2em;
+}
+
+p.content {
+	font-family: 'Open Sans', sans-serif; 
+	font-size:14px;
+}
+
